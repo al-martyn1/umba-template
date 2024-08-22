@@ -1,5 +1,6 @@
 cmake_minimum_required(VERSION 3.21.0)
 project(umba-template VERSION 0.1.0 LANGUAGES C CXX)
+
 # set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
 
@@ -26,15 +27,16 @@ include(${CMAKE_CURRENT_LIST_DIR}/.cmake/umba.cmake)
 
 include_directories(${LIB_ROOT})
 
-add_subdirectory(${LIB_ROOT}/encoding)
-add_subdirectory(${LIB_ROOT}/marty_cpp)
+# Import libraries here
+# add_subdirectory(${LIB_ROOT}/encoding)
+# add_subdirectory(${LIB_ROOT}/marty_cpp)
 # add_subdirectory(${LIB_ROOT}/marty_pugixml)
-add_subdirectory(${LIB_ROOT}/marty_tr)
+# add_subdirectory(${LIB_ROOT}/marty_tr)
 # add_subdirectory(${LIB_ROOT}/marty_yaml_toml_json)
 # add_subdirectory(${LIB_ROOT}/nlohmann)    # https://json.nlohmann.me/integration/cmake/#external
 # add_subdirectory(${LIB_ROOT}/pugixml)
-add_subdirectory(${LIB_ROOT}/sfmt)
-add_subdirectory(${LIB_ROOT}/umba)
+# add_subdirectory(${LIB_ROOT}/sfmt)
+# add_subdirectory(${LIB_ROOT}/umba)
 # add_subdirectory(${LIB_ROOT}/yaml-cpp)
 
 
@@ -91,9 +93,11 @@ if(WIN32) # Всё нормально, это про таргет
     list(APPEND PLATFORM_LIBS ws2_32 iphlpapi shell32)
 endif()
 
-set(COMMON_LIBS encoding::encoding marty_cpp::marty_cpp sfmt::sfmt umba::umba)
+
+# Configure libraries here
+# set(COMMON_LIBS encoding::encoding marty_cpp::marty_cpp sfmt::sfmt umba::umba)
 #set(PUGIXML_LIB pugixml::pugixml marty_pugixml::marty_pugixml)
-set(JSON_YAML_LIB nlohmann_json::nlohmann_json yaml-cpp::yaml-cpp)
+# set(JSON_YAML_LIB nlohmann_json::nlohmann_json yaml-cpp::yaml-cpp)
 
 
 # set(COMMON_UMBA_OPTIONS "BIGOBJ" "UTF8" "WALL" "WERR")
