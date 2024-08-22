@@ -3,7 +3,7 @@
   - [Настройка проекта на базе данного шаблона](#user-content-настройка-проекта-на-базе-данного-шаблона)
     - [Настройка CMakeLists.txt](#user-content-настройка-cmakeliststxt)
       - [Название проекта](#user-content-название-проекта)
-      - [Настройка библиотеки](#user-content-настройка-библиотеки)
+      - [Настройка библиотек](#user-content-настройка-библиотек)
       - [Добавление целей](#user-content-добавление-целей)
     - [Настройка запуска MSVC](#user-content-настройка-запуска-msvc)
   - [Сборка и отладка проекта](#user-content-сборка-и-отладка-проекта)
@@ -30,30 +30,30 @@
 
 CMakeLists.txt:2
 ```cmake
-2: project(umba-template VERSION 0.1.0 LANGUAGES C CXX)
+project(umba-template VERSION 0.1.0 LANGUAGES C CXX)
 ```
 
 Заменяем название `umba-template` на название проекта.
 
 
 
-### Настройка библиотеки
+### Настройка библиотек
 
 Импортируем нужные библиотеки:
 
 CMakeLists.txt:30
 ```cmake
-30: # Import libraries here
-31: # add_subdirectory(${LIB_ROOT}/encoding)
-32: # add_subdirectory(${LIB_ROOT}/marty_cpp)
-33: # add_subdirectory(${LIB_ROOT}/marty_pugixml)
-34: # add_subdirectory(${LIB_ROOT}/marty_tr)
-35: # add_subdirectory(${LIB_ROOT}/marty_yaml_toml_json)
-36: # add_subdirectory(${LIB_ROOT}/nlohmann)    # https://json.nlohmann.me/integration/cmake/#external
-37: # add_subdirectory(${LIB_ROOT}/pugixml)
-38: # add_subdirectory(${LIB_ROOT}/sfmt)
-39: # add_subdirectory(${LIB_ROOT}/umba)
-40: # add_subdirectory(${LIB_ROOT}/yaml-cpp)
+# Import libraries here
+# add_subdirectory(${LIB_ROOT}/encoding)
+# add_subdirectory(${LIB_ROOT}/marty_cpp)
+# add_subdirectory(${LIB_ROOT}/marty_pugixml)
+# add_subdirectory(${LIB_ROOT}/marty_tr)
+# add_subdirectory(${LIB_ROOT}/marty_yaml_toml_json)
+# add_subdirectory(${LIB_ROOT}/nlohmann)    # https://json.nlohmann.me/integration/cmake/#external
+# add_subdirectory(${LIB_ROOT}/pugixml)
+# add_subdirectory(${LIB_ROOT}/sfmt)
+# add_subdirectory(${LIB_ROOT}/umba)
+# add_subdirectory(${LIB_ROOT}/yaml-cpp)
 ```
 
 
@@ -61,10 +61,10 @@ CMakeLists.txt:30
 
 CMakeLists.txt:97
 ```cmake
- 97: # Configure libraries here
- 98: # set(COMMON_LIBS encoding::encoding marty_cpp::marty_cpp sfmt::sfmt umba::umba)
- 99: #set(PUGIXML_LIB pugixml::pugixml marty_pugixml::marty_pugixml)
-100: # set(JSON_YAML_LIB nlohmann_json::nlohmann_json yaml-cpp::yaml-cpp)
+# Configure libraries here
+# set(COMMON_LIBS encoding::encoding marty_cpp::marty_cpp sfmt::sfmt umba::umba)
+# set(PUGIXML_LIB pugixml::pugixml marty_pugixml::marty_pugixml)
+# set(JSON_YAML_LIB nlohmann_json::nlohmann_json yaml-cpp::yaml-cpp)
 ```
 
 При настройке целей можно как использовать заранее подготовленные списки библиотек, так и указывать библиотеки непосредственно.
@@ -76,9 +76,9 @@ CMakeLists.txt:97
 
 CMakeLists.txt:106
 ```cmake
-106: add_executable(umba-template "${SRC_ROOT}/umba-template/umba-template.cpp" "${headers}")
-107: umba_add_target_options(umba-template "CONSOLE" "BIGOBJ" "UTF8" ) # "PEDANTIC" "WERR"
-108: target_link_libraries(umba-template PRIVATE "${PLATFORM_LIBS}" "${COMMON_LIBS}")
+add_executable(umba-template "${SRC_ROOT}/umba-template/umba-template.cpp" "${headers}")
+umba_add_target_options(umba-template "CONSOLE" "BIGOBJ" "UTF8" ) # "PEDANTIC" "WERR"
+target_link_libraries(umba-template PRIVATE "${PLATFORM_LIBS}" "${COMMON_LIBS}")
 ```
 
 При необходимости дополнительные цели можно добавлять аналогично.
@@ -90,7 +90,7 @@ CMakeLists.txt:106
 
 set_sln.bat:2
 ```
-2: @set SLN=umba-template
+@set SLN=umba-template
 ```
 
 Это название должно совпадать с тем, что указано в директиве `project` файла `CMakeLists.txt`.

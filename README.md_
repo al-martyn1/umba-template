@@ -16,22 +16,22 @@ Title: Шаблон Umba-проекта
 
 В начале файла находим строку описания проекта (с директивой `project`):
 
-#!insert{lineno,no-keep-cut-tags,filename,no-path} CMakeLists.txt#`project(umba-template`-(1)
+#!insert{noLineNo,noKeepCutTags,filename,no-path} CMakeLists.txt#`project(umba-template`-(1)
 
 Заменяем название `umba-template` на название проекта.
 
 
 
-### Настройка библиотеки
+### Настройка библиотек
 
 Импортируем нужные библиотеки:
 
-#!insert{lineno,no-keep-cut-tags,filename,no-path} CMakeLists.txt#`# Import libraries here`-(1)
+#!insert{noLineNo,noKeepCutTags,filename,no-path} CMakeLists.txt#`# Import libraries here`-(1)
 
 
 Настраиваем списки библиотек для последующего использования:
 
-#!insert{lineno,no-keep-cut-tags,filename,no-path} CMakeLists.txt#`# Configure libraries here`-(1)
+#!insert{noLineNo,noKeepCutTags,filename,no-path} CMakeLists.txt#`# Configure libraries here`-(1)
 
 При настройке целей можно как использовать заранее подготовленные списки библиотек, так и указывать библиотеки непосредственно.
 
@@ -40,7 +40,7 @@ Title: Шаблон Umba-проекта
 
 Настраиваем цель (исполняемый файл) проекта:
 
-#!insert{lineno,no-keep-cut-tags,filename,no-path} CMakeLists.txt#`add_executable(umba-template`-(1)
+#!insert{noLineNo,noKeepCutTags,filename,no-path} CMakeLists.txt#`add_executable(umba-template`-(1)
 
 При необходимости дополнительные цели можно добавлять аналогично.
 
@@ -49,7 +49,7 @@ Title: Шаблон Umba-проекта
 
 Для открытия проекта в MSVC нужно настроить название "солюшена":
 
-#!insert{lineno,no-keep-cut-tags,filename,no-path} set_sln.bat#`@set SLN`-(1)
+#!insert{noLineNo,noKeepCutTags,filename,no-path} set_sln.bat#`@set SLN`-(1)
 
 Это название должно совпадать с тем, что указано в директиве `project` файла `CMakeLists.txt`.
 
