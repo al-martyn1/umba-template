@@ -1,0 +1,1 @@
+@call "%~dp0\.bat\fix_tabs.bat"
