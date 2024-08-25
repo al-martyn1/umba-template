@@ -17,12 +17,12 @@
 @if not exist %UMBA_TOOLS%\bin    mkdir %UMBA_TOOLS%\bin
 @if not exist %UMBA_TOOLS%\conf   mkdir %UMBA_TOOLS%\conf
 
-@IF "%PPROOTPATH%"=="" @(
-    @echo PPROOTPATH not found
+@IF "%OUTROOTPATH%"=="" @(
+    @echo OUTROOTPATH not found
     exit /B 1
 )
 
-copy /Y "%PPROOTPATH%\Release\%SLN%.exe"         %UMBA_TOOLS%\bin\
+copy /Y "%OUTROOTPATH%\Release\%SLN%.exe"         %UMBA_TOOLS%\bin\
 
 @if exist _distr_conf @xcopy /Y /S /E /I /F /R %~dp0\_distr_conf\conf\*               %UMBA_TOOLS%\conf
 
