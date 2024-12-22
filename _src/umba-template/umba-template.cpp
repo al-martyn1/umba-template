@@ -7,6 +7,12 @@
 //---
 #include "umba/app_main.h"
 //
+#include "umba/debug_helpers.h"
+#include "umba/shellapi.h"
+#include "umba/program_location.h"
+#include "umba/cli_tool_helpers.h"
+#include "umba/cmd_line.h"
+//
 
 //#-sort
 #include "umba/simple_formatter.h"
@@ -46,6 +52,29 @@
 #include "umba/shellapi.h"
 
 
+umba::StdStreamCharWriter coutWriter(std::cout);
+umba::StdStreamCharWriter cerrWriter(std::cerr);
+umba::NulCharWriter       nulWriter;
+
+umba::SimpleFormatter umbaLogStreamErr(&cerrWriter);
+umba::SimpleFormatter umbaLogStreamMsg(&coutWriter);
+umba::SimpleFormatter umbaLogStreamNul(&nulWriter);
+
+bool umbaLogGccFormat   = false; // true;
+bool umbaLogSourceInfo  = false;
+
+bool bOverwrite         = false;
+
+//
+#include "log.h"
+//
+#include "AppConfig.h"
+
+AppConfig appConfig;
+
+#include "ArgParser.h"
+
+
 
 UMBA_APP_MAIN()
 {
@@ -54,3 +83,4 @@ UMBA_APP_MAIN()
 
     return 0;
 }
+
