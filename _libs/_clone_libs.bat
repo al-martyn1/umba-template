@@ -1,12 +1,9 @@
 @set ACC=al-martyn1
 @set BASE=github.com
 
-
 @if "%1"=="SSH"  goto SETUP_SSH
 @if "%1"=="GIT"  goto SETUP_SSH
 @if "%1"=="HTTP" goto SETUP_HTTP
-
-
 
 @rem Default is HTTPS mode
 
@@ -36,4 +33,3 @@ set PREFIX=git@%BASE%:%ACC%
 @rem git clone --recurse-submodules %PREFIX%/umba_mm_mod_sfmt.git        %~dp0\sfmt
 @rem git clone --recurse-submodules %PREFIX%/umba_mm_mod_umba.git        %~dp0\umba
 @rem git clone --recurse-submodules %PREFIX%/forks-jbeder-yaml-cpp.git   %~dp0\yaml-cpp
-

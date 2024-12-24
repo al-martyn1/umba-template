@@ -11,10 +11,7 @@
 @rem call :DO_GIT_JOB %1 %~dp0\umba
 @rem call :DO_GIT_JOB %1 %~dp0\yaml-cpp
 
-
-
 @exit /B
-
 
 :DO_GIT_JOB
 @echo %1'ing %2
@@ -23,4 +20,3 @@
 @cd ..
 @echo.
 @exit /B
-
