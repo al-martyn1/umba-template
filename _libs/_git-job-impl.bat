@@ -9,6 +9,7 @@
 @rem call :DO_GIT_JOB %1 %~dp0\nlohmann
 @rem call :DO_GIT_JOB %1 %~dp0\sfmt
 @rem call :DO_GIT_JOB %1 %~dp0\umba
+@rem call :DO_GIT_JOB %1 %~dp0\umba_tokenizer
 @rem call :DO_GIT_JOB %1 %~dp0\yaml-cpp
 
 @exit /B

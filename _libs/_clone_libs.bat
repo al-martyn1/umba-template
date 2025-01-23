@@ -32,4 +32,5 @@ set PREFIX=git@%BASE%:%ACC%
 @rem git clone --recurse-submodules %PREFIX%/forks-nlohmann-json.git     %~dp0\nlohmann
 @rem git clone --recurse-submodules %PREFIX%/umba_mm_mod_sfmt.git        %~dp0\sfmt
 @rem git clone --recurse-submodules %PREFIX%/umba_mm_mod_umba.git        %~dp0\umba
+@rem git clone --recurse-submodules %PREFIX%/umba_tokenizer.git          %~dp0\umba_tokenizer
 @rem git clone --recurse-submodules %PREFIX%/forks-jbeder-yaml-cpp.git   %~dp0\yaml-cpp
