@@ -4,4 +4,3 @@
 *.user
 *.log
 .set_msvc.bat
-.set_sln_exes.bat
