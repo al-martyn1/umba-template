@@ -49,7 +49,7 @@ Title: Шаблон Umba-проекта
 
 Для открытия проекта в MSVC нужно настроить название "солюшена":
 
-#!insert{noLineNo,noKeepCutTags,filename,no-path} set_sln.bat#`@set SLN`-(1)
+#!insert{noLineNo,noKeepCutTags,filename,no-path} .set_sln.bat#`@set SLN`-(1)
 
 Это название должно совпадать с тем, что указано в директиве `project` файла `CMakeLists.txt`.
 
