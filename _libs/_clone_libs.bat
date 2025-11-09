@@ -1,3 +1,6 @@
+@echo off
+setlocal enabledelayedexpansion
+
 @set ACC=al-martyn1
 @set BASE=github.com
 
@@ -21,16 +24,44 @@ goto DO_CLONE
 set PREFIX=git@%BASE%:%ACC%
 
 :DO_CLONE
-@rem git clone --recurse-submodules %PREFIX%/umba_mm_mod_encodings.git   %~dp0\encoding
-@rem git clone --recurse-submodules %PREFIX%/marty_cpp.git               %~dp0\marty_cpp
-@rem git clone --recurse-submodules %PREFIX%/marty_decimal.git           %~dp0\marty_decimal
-@rem git clone --recurse-submodules %PREFIX%/marty_pugixml.git           %~dp0\marty_pugixml
-@rem git clone --recurse-submodules %PREFIX%/extern_pugixml.git          %~dp0\pugixml
-@rem git clone --recurse-submodules %PREFIX%/marty_tr.git                %~dp0\marty_tr
-@rem git clone --recurse-submodules %PREFIX%/marty_utf.git               %~dp0\marty_utf
-@rem git clone --recurse-submodules %PREFIX%/marty_yaml_toml_json.git    %~dp0\marty_yaml_toml_json
-@rem git clone --recurse-submodules %PREFIX%/forks-nlohmann-json.git     %~dp0\nlohmann
-@rem git clone --recurse-submodules %PREFIX%/umba_mm_mod_sfmt.git        %~dp0\sfmt
-@rem git clone --recurse-submodules %PREFIX%/umba_mm_mod_umba.git        %~dp0\umba
-@rem git clone --recurse-submodules %PREFIX%/umba_tokenizer.git          %~dp0\umba_tokenizer
-@rem git clone --recurse-submodules %PREFIX%/forks-jbeder-yaml-cpp.git   %~dp0\yaml-cpp
+@set "GIT_OPTS=--recurse-submodules"
+@set "MAIN_REPO=%PREFIX%"
+@set "INPUT_FILE=%~dp0\libs.list"
+
+for /f "tokens=1,2" %%A in (%INPUT_FILE%) do (
+    @echo.
+    @set first=%%A
+    @if /i "!first:~0,1!"=="#" (
+      @echo Skip %%A %%B
+    ) else (
+      @if "%%B"=="" (
+          call :process_single "%%A"
+      ) else (
+          call :process_double "%%A" "%%B"
+      )
+    )
+)
+@goto :eof
+
+:process_single
+echo git clone %GIT_OPTS% %MAIN_REPO%/%~1.git %~1
+git clone %GIT_OPTS% %MAIN_REPO%/%~1.git %~1
+@exit /B 0
+
+:process_double
+@set "value=%~2"
+@if /i "!value:~0,8!"=="https://" (
+  echo git clone %GIT_OPTS% %value%.git %~1
+  git clone %GIT_OPTS% %value%.git %~1
+) else if /i "!value:~0,7!"=="http://" (
+  echo git clone %GIT_OPTS% %value%.git %~1
+  git clone %GIT_OPTS% %value%.git %~1
+) else if /i "!value:~0,4!"=="git@" (
+  echo git clone %GIT_OPTS% %value%.git %~1
+  git clone %GIT_OPTS% %value%.git %~1
+) else (
+  echo git clone %GIT_OPTS% %MAIN_REPO%/%value%.git %~1
+  git clone %GIT_OPTS% %MAIN_REPO%/%value%.git %~1
+)
+
+@exit /B 0
