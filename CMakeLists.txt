@@ -41,7 +41,13 @@ include_directories(${LIB_ROOT})
 
 
 # Configure libraries here
-# set(COMMON_LIBS encoding::encoding marty_cpp::marty_cpp sfmt::sfmt umba::umba)
+set(COMMON_LIBS 
+#    encoding::encoding
+#    marty::cpp
+#    sfmt::sfmt
+#    umba::umba
+#    umba::tokenizer
+   )
 # set(PUGIXML_LIB pugixml::pugixml marty_pugixml::marty_pugixml)
 # set(JSON_YAML_LIB nlohmann_json::nlohmann_json yaml-cpp::yaml-cpp)
 
