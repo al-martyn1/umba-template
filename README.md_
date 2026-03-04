@@ -54,5 +54,5 @@ Title: Шаблон Umba-проекта
 Это название должно совпадать с тем, что указано в директиве `project` файла `CMakeLists.txt`.
 
 
-#!insert{doc} .bat/md_/building.md_
+#!insert{doc} .umba.bat/md_/building.md_
 
